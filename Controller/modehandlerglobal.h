@@ -8,28 +8,35 @@
 class ModeHandlerGlobal
 {
 public:
-    void prepare_edition();
+   ModeHandlerGlobal();
 
-    template<class GraphicObject_>
-    void prepare_draw() {
-        mode_ = Mode::draw;
-        draw_mode_.prepare_draw(std::make_unique<GraphicObject_>());
-    }
+   void prepare_edition();
 
-    void paint(QPainter& painter);
+   template<class GraphicObject_>
+   void prepare_draw() {
+      mode_ = Mode::draw;
+      draw_mode_.prepare_draw(std::make_unique<GraphicObject_>());
+   }
 
-    void mousePressed(int x, int y);
-    void mouseMoved(int x, int y);
-    void mouseReleased(std::vector<std::unique_ptr<GraphicObject>>& listGraphicObjects);
+   void paint(QPainter& painter);
+
+   void mousePressed(int x, int y);
+   void mouseMoved(int x, int y);
+   void mouseReleased();
+   const std::vector<std::unique_ptr<GraphicObject>>& listGraphicObjects() const;
 
 private:
-    enum class Mode{
-        edition, draw
-    };
+   enum class Mode{
+      edition, draw
+   };
 
-    Mode mode_ = Mode::edition;
-    ModeHandlerDraw draw_mode_;
-    ModeHandlerEdition edition_mode_;
+   std::vector<std::unique_ptr<GraphicObject>> listGraphicObjects_;
+   Mode mode_ = Mode::edition;
+   ModeHandlerDraw draw_mode_;
+   ModeHandlerEdition edition_mode_;
+
+   using Point = std::pair<int, int>;
+   Point last_mouse_position;
 };
 
 #endif // MODEHANDLERGLOBAL_H

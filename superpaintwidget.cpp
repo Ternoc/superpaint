@@ -11,6 +11,14 @@
 #include "Graphics/html.h"
 #include "Graphics/ellipse.h"
 
+SuperPaintWidget::SuperPaintWidget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::SuperPaintWidget)
+{
+    ui->setupUi(this);
+
+    setMouseTracking(true);
+}
 
 void SuperPaintWidget::button_selection_clicked()
 {
@@ -47,13 +55,6 @@ void SuperPaintWidget::button_ellipse_clicked()
    global_mode_.prepare_draw<Ellipse>();
 }
 
-SuperPaintWidget::SuperPaintWidget(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::SuperPaintWidget)
-{
-    ui->setupUi(this);
-}
-
 SuperPaintWidget::~SuperPaintWidget()
 {
     delete ui;
@@ -62,7 +63,7 @@ SuperPaintWidget::~SuperPaintWidget()
 void SuperPaintWidget::paintEvent(QPaintEvent*)
 {
     QPainter painter(this);
-    for (const auto& gobj : listGraphicObjects_)
+    for (const auto& gobj : global_mode_.listGraphicObjects()) //gobj = graphic object
     {
         gobj->draw(painter); //objects of the list (already stored)
     }
@@ -83,7 +84,7 @@ void SuperPaintWidget::mouseMoveEvent(QMouseEvent *event)
 
 void SuperPaintWidget::mouseReleaseEvent(QMouseEvent*)
 {
-    global_mode_.mouseReleased(listGraphicObjects_);
+    global_mode_.mouseReleased();
     repaint();
 }
 

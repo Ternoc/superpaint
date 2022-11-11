@@ -15,6 +15,11 @@ class SuperPaintWidget;
 class SuperPaintWidget : public QWidget
 {
     Q_OBJECT
+
+public:
+    explicit SuperPaintWidget(QWidget *parent = 0);
+    ~SuperPaintWidget();
+
 public slots:
     void button_selection_clicked();
     void button_rect_clicked();
@@ -24,13 +29,8 @@ public slots:
     void button_arrow_directed_clicked();
     void button_ellipse_clicked();
 
-public:
-    explicit SuperPaintWidget(QWidget *parent = 0);
-    ~SuperPaintWidget();
-
 private:
     Ui::SuperPaintWidget *ui;
-	std::vector<std::unique_ptr<GraphicObject>> listGraphicObjects_;
     ModeHandlerGlobal global_mode_;
 
 protected:
