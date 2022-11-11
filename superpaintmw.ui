@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SuperPaintMW</class>
+ <widget class="QMainWindow" name="SuperPaintMW">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>953</width>
+    <height>652</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SuperPaintMW</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="SuperPaintWidget" name="widget" native="true"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>953</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+   </widget>
+   <addaction name="menuFichier"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>4</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="push_selection">
+       <property name="text">
+        <string>Selection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="push_rectangle">
+       <property name="text">
+        <string>Rectangle</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="push_ellipse">
+       <property name="text">
+        <string>Ellipse</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="push_text">
+       <property name="text">
+        <string>Text</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="push_html">
+       <property name="text">
+        <string>&lt;HTML&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="push_line">
+       <property name="text">
+        <string>Line</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="push_arrow_directed">
+       <property name="text">
+        <string>Arrow</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>SuperPaintWidget</class>
+   <extends>QWidget</extends>
+   <header>superpaintwidget.h</header>
+   <container>1</container>
+   <slots>
+    <slot>button_rect_clicked()</slot>
+    <slot>button_text_clicked()</slot>
+    <slot>button_line_clicked()</slot>
+    <slot>button_arrow_directed_clicked()</slot>
+    <slot>button_ellipse_clicked()</slot>
+    <slot>button_html_clicked()</slot>
+    <slot>button_selection_clicked()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>push_line</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_line_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>809</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>767</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>push_arrow_directed</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_arrow_directed_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>845</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>844</x>
+     <y>135</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>push_ellipse</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_ellipse_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>176</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>push_html</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_html_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>588</x>
+     <y>64</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>600</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>push_rectangle</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_rect_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>223</x>
+     <y>60</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>203</x>
+     <y>146</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>push_text</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_text_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>455</x>
+     <y>64</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>push_selection</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>button_selection_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>100</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,7 @@
+Dans ce dépôt vous trouverez l'archive d'un vieux projet C++ dont le but était de créer une alternative à paint.
+
+Ce projet utilise la bibliothèque QT.
+
+La branche main contient une version du code compilable. La branche nocomp contient la dernière version mais qui ne compile pas.
+
+Le license de ce dépôt est la license permise par qt pour les projets open-sources.
